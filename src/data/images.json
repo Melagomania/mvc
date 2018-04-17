@@ -1,0 +1,20 @@
+[
+  {
+    "name": "img1",
+    "path": "./",
+    "src": "img1.jpg",
+    "likes": 0
+  },
+  {
+    "name": "img2",
+    "path": "./",      
+    "src": "img2.jpg",
+    "likes": 0
+  },
+  {
+    "name": "img3",
+    "path": "./",      
+    "src": "img3.jpg",
+    "likes": 0
+  }
+]

@@ -7,7 +7,7 @@ ViewTop.prototype.renderImagesTop = function(data) {
   var el;
   for(let i of data) {
     el = document.createElement('li');
-    el.textContent = i.name;
+    el.textContent = i.name + ' ' + i.likes + ' likes';
     this.topList.appendChild(el);
   }
 }

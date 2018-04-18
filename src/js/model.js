@@ -1,3 +1,3 @@
-export function Model() {
-
+export function Model(data) {
+  this.data = data;
 } 

@@ -7,24 +7,23 @@
   <title>MVC Taks</title>
 </head>
 <style>
-  .images-list {
-    max-width: 500px;
+  body{
+    text-align: center;
   }
-
-  li {
-    list-style-type: none;
+  .image-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
   }
   img {
     width: 100%;
   }
 </style>
 <body>
-  <div class="image-wrapper">
-    
-  </div>
-  <button class="button  button-like">like</button>
-  <button class="button  button-prev">prev</button>
-  <button class="button  button-next">next</button>
+  <div class="image-wrapper"></div>
+  <span class="likes-counter"></span>
+  <button class="button" id="like">like</button>
+  <button class="button" id="prev">prev</button>
+  <button class="button" id="next">next</button>
 
   <section class="images-list-info">
 

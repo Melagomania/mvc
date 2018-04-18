@@ -3,9 +3,9 @@ import {ViewLike} from './view-like';
 import {ViewTop} from './view-top';
 import {Controller} from './controller';
 import {ViewPhoto} from './view-photo';
-var imagesCollection = require('../data/images.json');
+var imagesData = require('../data/images.json');
 
-var model = new Model(imagesCollection);
+var model = new Model(imagesData);
 var viewPhoto = new ViewPhoto();
 var viewLike = new ViewLike();
 var viewTop = new ViewTop();

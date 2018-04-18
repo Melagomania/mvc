@@ -13,17 +13,8 @@ export function Controller(model, viewPhoto, viewLike, viewTop) {
 
   _this.buttons = document.getElementById('buttons-wrapper');
   
-  _this.init = function() {
-    _this.buttons.addEventListener('click', _this.handleButtonClick);
-
-    _this.model.shownImageIndex = 0;
-    _this.viewPhoto.appendFirstImageToDOM(_this.model.data[_this.model.shownImageIndex]);
-    _this.viewLike.renderLikesCount(_this.model.data[_this.model.shownImageIndex].likes);
-  }
-
   _this.handleButtonClick = function(e) {
     var targetId = e.target.id;
-
     switch(targetId) {
       case 'like':
         _this.handleLikeClick();
@@ -52,4 +43,11 @@ export function Controller(model, viewPhoto, viewLike, viewTop) {
     _this.viewPhoto.changeImage(_this.model.data[_this.model.shownImageIndex]);
     _this.viewLike.renderLikesCount(_this.model.data[_this.model.shownImageIndex].likes);    
   }  
+}
+
+Controller.prototype.init = function() {
+  this.buttons.addEventListener('click', this.handleButtonClick);
+  this.model.shownImageIndex = 0;
+  this.viewPhoto.appendFirstImageToDOM(this.model.data[this.model.shownImageIndex]);
+  this.viewLike.renderLikesCount(this.model.data[this.model.shownImageIndex].likes);
 }

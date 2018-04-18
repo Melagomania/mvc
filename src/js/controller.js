@@ -31,7 +31,7 @@ export function Controller(model, viewPhoto, viewLike, viewTop) {
   _this.handleLikeClick = function() {
     _this.model.incrementLikesCount();
     _this.viewLike.renderLikesCount(_this.model.data[_this.model.shownImageIndex].likes);   
-    _this.viewTop.renderImagesTop(model.getSortedData()); 
+    _this.viewTop.renderImagesTop(_this.model.getSortedData()); 
   }
   _this.handlePrevClick = function() {
     _this.model.decrementShownImageIndex();
@@ -50,4 +50,5 @@ Controller.prototype.init = function() {
   this.model.shownImageIndex = 0;
   this.viewPhoto.appendFirstImageToDOM(this.model.data[this.model.shownImageIndex]);
   this.viewLike.renderLikesCount(this.model.data[this.model.shownImageIndex].likes);
+  this.viewTop.renderImagesTop(this.model.getSortedData());
 }

@@ -5,50 +5,51 @@ import {ViewTop} from './view-photo';
 
 
 export function Controller(model, viewPhoto, viewLike, viewTop) {
-  var self = this;
-  self.viewLike = viewLike;
-  self.model = model;
-  self.viewTop = viewTop;
-  self.viewPhoto = viewPhoto;
+  var _this = this;
+  _this.model = model;
+  _this.viewLike = viewLike;
+  _this.viewPhoto = viewPhoto;
+  _this.viewTop = viewTop;
+
+  _this.buttons = document.getElementById('buttons-wrapper');
   
-  self.elements = {
-    buttons: document.getElementsByClassName('button'),
-    likesCounter: document.getElementsByClassName('likes-counter')[0],
-    imageWrapper: document.getElementsByClassName('image-wrapper')[0]
+  _this.init = function() {
+    _this.buttons.addEventListener('click', _this.handleButtonClick);
+
+    _this.model.shownImageIndex = 0;
+    _this.viewPhoto.appendFirstImageToDOM(_this.model.data[_this.model.shownImageIndex]);
+    _this.viewLike.renderLikesCount(_this.model.data[_this.model.shownImageIndex].likes);
   }
 
-  self.init = function() {
-    for(let i = 0; i < self.elements.buttons.length; i++) {
-      self.elements.buttons[i].addEventListener('click', self.handleButtonClick);
-    }
-    
-    self.model.shownImage = 0;
-    self.viewPhoto.showPhoto(self.model.data[self.model.shownImage]);
-    self.viewLike.printLikes(self.model.data[self.model.shownImage]);
-  }
-
-  self.handleButtonClick = function(e) {
+  _this.handleButtonClick = function(e) {
     var targetId = e.target.id;
+
     switch(targetId) {
       case 'like':
-      self.handleLikeClick();
-      break;
+        _this.handleLikeClick();
+        break;
       case 'prev':
-      self.handlePrevClick();
-      break;      
+        _this.handlePrevClick();
+        break;
       case 'next':
-      self.handleNextClick();
-      break;      
+        _this.handleNextClick();
+        break;
     }
   }
-
-  self.handleLikeClick = function() {
-    console.log('like');
+  
+  _this.handleLikeClick = function() {
+    _this.model.incrementLikesCount();
+    _this.viewLike.renderLikesCount(_this.model.data[_this.model.shownImageIndex].likes);   
+    _this.viewTop.renderImagesTop(model.getSortedData()); 
   }
-  self.handlePrevClick = function() {
-    console.log('prev');
+  _this.handlePrevClick = function() {
+    _this.model.decrementShownImageIndex();
+    _this.viewPhoto.changeImage(_this.model.data[_this.model.shownImageIndex]);
+    _this.viewLike.renderLikesCount(_this.model.data[_this.model.shownImageIndex].likes);    
   }
-  self.handleNextClick = function() {
-    console.log('next');
+  _this.handleNextClick = function() {
+    _this.model.incrementShownImageIndex();
+    _this.viewPhoto.changeImage(_this.model.data[_this.model.shownImageIndex]);
+    _this.viewLike.renderLikesCount(_this.model.data[_this.model.shownImageIndex].likes);    
   }  
 }

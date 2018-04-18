@@ -7,27 +7,27 @@
   <title>MVC Taks</title>
 </head>
 <style>
-  body{
+  body {
     text-align: center;
   }
   .image-wrapper {
-    max-width: 500px;
     margin: 0 auto;
+    height: 350px;
+    text-align: center;
   }
-  img {
-    width: 100%;
+  #img {
+    height: 100%;
   }
 </style>
 <body>
   <div class="image-wrapper"></div>
   <span class="likes-counter"></span>
-  <button class="button" id="like">like</button>
-  <button class="button" id="prev">prev</button>
-  <button class="button" id="next">next</button>
-
-  <section class="images-list-info">
-
+  <section id="buttons-wrapper">
+    <button class="button" id="like">like</button>
+    <button class="button" id="prev">prev</button>
+    <button class="button" id="next">next</button>
   </section>
+  <ul id="top-list"></ul>
   <script src="/bundle.js"></script>
 </body>
 </html>

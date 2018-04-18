@@ -1,18 +1,18 @@
 [
   {
-    "name": "img1",
+    "name": "Walter",
     "path": "./",
     "src": "img1.jpg",
     "likes": 0
   },
   {
-    "name": "img2",
+    "name": "UA",
     "path": "./",      
     "src": "img2.jpg",
     "likes": 0
   },
   {
-    "name": "img3",
+    "name": "Forest",
     "path": "./",      
     "src": "img3.jpg",
     "likes": 0
